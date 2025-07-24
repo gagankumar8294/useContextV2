@@ -1,10 +1,13 @@
 import styles from "../styles/Item.module.css";
 import ItemCard from "./ItemCard";
+import data from "../data/itemData";
 
 function Items() {
   return (
     <div className={styles.wrapper}>
-      <ItemCard name="Apple" price={199} />
+      {data.map((d) => (
+        <ItemCard key={d.id} name={d.name} price={d.price} />
+      ))}
     </div>
   );
 }

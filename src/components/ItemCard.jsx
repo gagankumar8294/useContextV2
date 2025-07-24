@@ -4,30 +4,19 @@ import { useValue } from "../itemContext";
 
 function ItemCard({ name, price }) {
 
-  const { item, setItem, total, setTotal } = useValue();
+  const { handleAdd, handleRemove } = useValue();
 
-  const handleAdd = () => {
-    setTotal(total + price)
-    setItem(item + 1)
-  };
-
-  const handleRemove = () => {
-    if(total <= 0) {
-      return;
-    }
-    setItem(item - 1)
-    setTotal((prevState) => prevState - price)
-  };
+  
 
   return (
     <div className={styles.itemCard}>
       <div className={styles.itemName}>{name}</div>
       <div className={styles.itemPrice}>&#x20B9; {price}</div>
       <div className={styles.itemButtonsWrapper}>
-        <button className={styles.itemButton} onClick={() => handleAdd()}>
+        <button className={styles.itemButton} onClick={() => handleAdd(price)}>
           Add
         </button>
-        <button className={styles.itemButton} onClick={() => handleRemove()}>
+        <button className={styles.itemButton} onClick={() => handleRemove(price)}>
           Remove
         </button>
       </div>
