@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import Items from './components/Items';
 import Navbar from './components/Navbar';
-import { itemContext } from './itemContext';
+import CustomItemContext, { itemContext } from './itemContext';
 
 function App() {
 
@@ -10,12 +10,13 @@ function App() {
   const [item, setItem] = useState(0);
   return (
         <div className='App'>
-          
+  
           <h2>Shopping Cart</h2>
-          <itemContext.Provider value={{ total, setTotal, item, setItem }}>
+          <CustomItemContext>
             <Navbar />
             <Items />
-          </itemContext.Provider>
+          </CustomItemContext>
+  
         </div>
   );
 }
