@@ -1,8 +1,14 @@
-import { react , createContext, useState } from "react";
+import { useContext , createContext, useState } from "react";
 
 const itemContext = createContext();
 
-function CustomItemContext( {children} ) {
+// Custom hook as a function
+function useValue() {
+    const value = useContext(itemContext);
+    return value;
+}
+
+function CustomItemContext({children}) {
     
     const [total, setTotal] = useState(0);
     const [item, setItem] = useState(0);
@@ -14,5 +20,5 @@ function CustomItemContext( {children} ) {
     )
 }
 
-export { itemContext };
+export { itemContext, useValue };
 export default CustomItemContext;
