@@ -40,5 +40,5 @@ function CustomItemContext({children}) {
     )
 }
 
-export { itemContext, useValue };
+export { useValue };
 export default CustomItemContext;
